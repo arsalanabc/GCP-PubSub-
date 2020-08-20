@@ -14,7 +14,7 @@ class GCPSubscription {
  constructor(projectId, topicName){
     this.subscriptionName = "";
     this.topicName = topicName;
-    this.pubsubClient = new PubSub(projectId, options);
+    this.pubsubClient = new PubSub(projectId);
  }
 
  createSubscription = async function(subscriptionName) {
@@ -25,7 +25,7 @@ class GCPSubscription {
     }).catch(e => {
 
       if(e.code === 5){ // Subscriptions not found
-        this.pubsubClient.topic(this.topicName).createSubscription(this.subscriptionName);
+        this.pubsubClient.topic(this.topicName).createSubscription(this.subscriptionName, options);
       } else{
         console.error(e)
       }

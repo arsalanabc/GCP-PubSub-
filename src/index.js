@@ -8,9 +8,8 @@ const pubsub = new GCPPublisher(PROJECT_ID);
 
 pubsub.setTopic(TOPIC_NAME)
 
-const subscription = new GCPSubscription(PROJECT_ID,TOPIC_NAME);
-subscription.createSubscription(SUB_NAME);
-
 pubsub.publishMessage(data).catch(console.error);
 
+const subscription = new GCPSubscription(PROJECT_ID,TOPIC_NAME);
+subscription.createSubscription(SUB_NAME);
 subscription.listenForMessages();
