@@ -13,7 +13,7 @@ Install gcloud globaly follow "https://cloud.google.com/sdk/docs#deb"
 Before run:
 `npm i`
 
-### run the emulator locally
+## Run the emulator locally
 install gcp pubsub emulator    
     `gcloud components install pubsub-emulator`
     `gcloud components update`
@@ -27,9 +27,15 @@ OR do it manually
 `export PUBSUB_EMULATOR_HOST=localhost:8085`
 `export PUBSUB_PROJECT_ID=test-project`
 
-### run the emulator in a docker
-`docker-compose up`
-
-
-Run the project
+### Run the project
 `npm start` this must be run in the same terminal as the env variables command.
+
+## Running the emulator in a docker
+`docker-compose up pubsub`
+
+
+## Running the tests
+`npm run docker-test` will setup the cluster, run the tests and destory everything. Any major changes with require `docker-compose build`
+
+
+

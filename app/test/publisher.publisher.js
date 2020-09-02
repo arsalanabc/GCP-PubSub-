@@ -52,7 +52,7 @@ describe('IPublisher unit tests', () => {
   it('should return an error if the implementation of IPublisher has no method "onPublish"', () => {
     return new Promise((resolve) => {
       var badPublisher = new BadPublisher()
-      badPublisher.publish().catch((alert) => {
+      badPublisher.publish("test message").catch((alert) => {
         assert.throw(() => {
           throw alert
         }, TypeError)

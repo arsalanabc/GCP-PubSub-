@@ -3,7 +3,7 @@ const GCPEncoder = require("../src/encoder/gcp-encoder");
 
 var assert = require("chai").assert;
 
-describe("IEncoder unit tests", () => {
+describe("GCPEncoder unit tests", () => {
   var conf = { encoder: "gcp", attributes: [] };
   var encoder = EncoderFactory.create(conf);
 
