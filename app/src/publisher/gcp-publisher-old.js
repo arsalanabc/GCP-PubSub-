@@ -10,8 +10,10 @@ const options = {
 
 class GCPPublisher {
  constructor(projectId){
-    
+   
      this.pubsub = new PubSub(projectId, options);
+
+     console.log(this.pubsub)
  }
 
  setTopic = async function(topicName){

@@ -3,9 +3,21 @@ version: "3"
 services:
   pubsub:
     image: knarz/pubsub-emulator
-    environment:
-      - PUBSUB_PROJECT_ID=test-project
-      - PUBSUB_EMULATOR_HOST=0.0.0.0:8085
     restart: always
     ports:
       - "8085:8085"
+
+  app:
+    build:
+      context: ./
+      dockerfile: ./app/Dockerfile
+    tty: true
+    working_dir: /opt/app
+    depends_on:
+      - pubsub
+    command: "npm run test"
+    environment:
+      - PUBSUB_PROJECT_ID=test-project
+      - PUBSUB_EMULATOR_HOST=pubsub:8085
+    volumes:
+      - "../:/GCP-PUBSUB"

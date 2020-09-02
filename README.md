@@ -19,13 +19,13 @@ install gcp pubsub emulator
     `gcloud components update`
 
 start the emulator
-`gcloud beta emulators pubsub start --project="project_id"`
+`gcloud beta emulators pubsub start --project="test-project"`
 
 Set up env variables
 `$(gcloud beta emulators pubsub env-init)` 
 OR do it manually
-`export PUBSUB_EMULATOR_HOST=localhost:8432`
-`export PUBSUB_PROJECT_ID=project_id`
+`export PUBSUB_EMULATOR_HOST=localhost:8085`
+`export PUBSUB_PROJECT_ID=test-project`
 
 ### run the emulator in a docker
 `docker-compose up`
